@@ -1,0 +1,38 @@
+{
+  "name": "@mordelonjs/angularjs-source",
+  "version": "0.0.1",
+  "description": "Mordelon Directive",
+  "private": false,
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.7.9"
+  },
+  "devDependencies": {
+    "mordelon-js": "^0.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "echo \"Publish Library\" && npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mordelonjs/angularjs-source.git"
+  },
+  "keywords": [
+    "mordelon",
+    "source",
+    "angular",
+    "component",
+    "javascript",
+    "js",
+    "angularjs"
+  ],
+  "authors": [
+    "Carlos Martinez <mtz677@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mordelonjs/angularjs-source/issues"
+  },
+  "homepage": "https://github.com/mordelonjs/angularjs-source#readme"
+}

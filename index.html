@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="mordelon">
+    <div mordelon data-url="https://jsonplaceholder.typicode.com/todos/" data-paginate="true">
+        <button type="button" ng-click="$m.$forceLoad()">CARGAR</button>
+        <div ng-show="$m.$loading">
+            <h1>LOADING</h1>
+        </div>
+        <div ng-show="$m.$error">
+            <p>ERROR: {{ $m.$error }}</p>
+        </div>
+        <div ng-show="!$m.$loading">
+            <span ng-init="$m.$filters = [{field:'firstname',operator:'%%',value:undefined},{field:'lastname',operator:'%%',value:undefined}]"></span>
+            <input ng-model="$m.$filters[0].value" ng-change="$m.$filtersChange()" placeholder="firstname"/>
+            <input ng-model="$m.$filters[1].value" ng-change="$m.$filtersChange()" placeholder="lastname"/>
+            <span>Desde: {{ $m.$from }}</span>
+            <span>Hasta: {{ $m.$to }}</span>
+            <span>Pagina: {{ $m.$currentPage }}</span>
+            <span>Ultima Pagina: {{ $m.$lastPage }}</span>
+            <button ng-click="$m.$previous()" type="button" ng-disabled="!$m.$hasPreviousPage()">ATRAS</button>
+
+            <button ng-click="$m.$next()" type="button" ng-disabled="!$m.$hasNextPage()">NEXT</button>
+            <table>
+                <thead>
+                    <th ng-repeat="property in $m.$keys">
+                        <button type="button" ng-click="$m.$sorter.field = property;$m.$sorter.direction = $m.$sorter.direction == 'ASC' ? 'DESC' : 'ASC' ;$m.$sorterChange()">^</button> {{ property }}
+                    </th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in $m.$data">
+                    <span>{{item }}</span>
+                    <td ng-repeat="property in $m.$keys">{{ item[property] }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="./node_modules/mordelon-js/dist/index.es.js" type="module"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
