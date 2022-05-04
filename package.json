@@ -5,7 +5,7 @@
   "private": false,
   "main": "index.js",
   "dependencies": {
-    "angular": "^1.7.9"
+    "angular": "^1.8.3"
   },
   "devDependencies": {
     "mordelon-js": "^0.1.1"
